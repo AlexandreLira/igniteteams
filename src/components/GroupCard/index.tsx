@@ -1,14 +1,15 @@
-import { ActivityIndicatorProps } from 'react-native'
-import { Container, Title } from './styles'
+import { ActivityIndicatorProps, TouchableOpacityProps } from 'react-native'
+import { Container, Icon, Title } from './styles'
 
-type GroupCardProps = {
+type GroupCardProps = TouchableOpacityProps & {
     title: string
 }
 
-export function GroupCard({title}: GroupCardProps) {
+export function GroupCard({ title, ...rest }: GroupCardProps) {
     return (
-        <Container>
-          <Title>{title}</Title>
+        <Container {...rest}>
+            <Icon />
+            <Title>{title}</Title>
         </Container>
     )
 } 

@@ -8,7 +8,6 @@ import {
 
 import { StatusBar } from 'expo-status-bar';
 
-import { NewGroups } from '@screens/NewGroups';
 import { Groups } from '@screens/Groups';
 import { Loading } from '@components/Loading';
 
@@ -25,7 +24,7 @@ export default function App() {
         style='inverted'
         backgroundColor={theme.COLORS.GRAY_600}
       />
-      {fontsLoaded ? <NewGroups /> : <Loading size={'large'} />}
+      {fontsLoaded ? <Groups /> : <Loading size={'large'} />}
 
     </ThemeProvider>
   );

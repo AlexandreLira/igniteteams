@@ -8,10 +8,10 @@ import {
 
 import { StatusBar } from 'expo-status-bar';
 
-import { Groups } from '@screens/Groups';
 import { Loading } from '@components/Loading';
 
 import theme from '@theme/index';
+import { Routes } from '@routes/index';
 
 export default function App() {
   const [fontsLoaded] = useFonts({ Roboto_400Regular, Roboto_700Bold })
@@ -24,7 +24,7 @@ export default function App() {
         style='inverted'
         backgroundColor={theme.COLORS.GRAY_600}
       />
-      {fontsLoaded ? <Groups /> : <Loading size={'large'} />}
+      {fontsLoaded ? <Routes /> : <Loading size={'large'} />}
 
     </ThemeProvider>
   );

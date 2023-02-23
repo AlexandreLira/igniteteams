@@ -18,11 +18,20 @@ import {
     Separator
 } from './styles'
 import { ListEmpty } from '@components/ListEmpty';
+import { useRoute } from '@react-navigation/native';
+
+type RouteParams = {
+    group: string
+}
+
 
 export function Players() {
     const [teams, setTeams] = useState(['time a', 'time b'])
     const [selectedTeam, setSelectedTeam] = useState(teams[0])
     const [players, setPlayers] = useState(['alexandre', 'pamela'])
+
+    const route = useRoute();
+    const { group } = route.params as RouteParams
 
     function handleRemovePlayer(name: string) {
         const newPlayers = players.filter(player => player !== name)
@@ -37,7 +46,7 @@ export function Players() {
         <Container>
             <Header showBackButton />
             <HighLight
-                title='Nome da turma'
+                title={group}
                 subtitle='Adicione a galera e separe os times'
             />
             <Form>
@@ -46,7 +55,7 @@ export function Players() {
                     placeholder='Nome da pessoa'
                     autoCorrect={false}
                 />
-                <ButtonIcon icon='add' onPress={() => handleAddPlayer(Math.random().toString())}/>
+                <ButtonIcon icon='add' onPress={() => handleAddPlayer(Math.random().toString())} />
             </Form>
 
             <ContentList>

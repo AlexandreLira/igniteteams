@@ -24,11 +24,11 @@ export class Player {
 
     static async delete(name: string, group: string) {
         try {
-            const players = await Player.getByGroup(group)
-            const newPlayers = players.filter(player => player.name !== name)
-            const storage = JSON.stringify(newPlayers)
+            const storagePlayers = await Player.getByGroup(group)
+            const filtered = storagePlayers.filter(player => player.name !== name)
+            const players = JSON.stringify(filtered)
 
-            await AsyncStorage.setItem(`${PLAYER_COLLECTION}-${group}`, storage)
+            await AsyncStorage.setItem(`${PLAYER_COLLECTION}-${group}`, players)
         } catch (error) {
             throw error
         }

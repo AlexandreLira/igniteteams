@@ -14,7 +14,7 @@ import theme from '@theme/index';
 import { Routes } from '@routes/index';
 
 export default function App() {
-  const [fontsLoaded] = useFonts({ Roboto_400Regular, Roboto_700Bold })
+  // const [fontsLoaded] = useFonts({ Roboto_400Regular, Roboto_700Bold })
 
 
   return (
@@ -24,8 +24,8 @@ export default function App() {
         style='inverted'
         backgroundColor={theme.COLORS.GRAY_600}
       />
-      {fontsLoaded ? <Routes /> : <Loading size={'large'} />}
-
+      {/* {fontsLoaded ? <Routes /> : <Loading size={'large'} />} */}
+      <Routes /> 
     </ThemeProvider>
   );
 }
